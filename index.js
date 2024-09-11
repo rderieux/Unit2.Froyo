@@ -12,19 +12,28 @@ console.log(flavorArray);
 const uniqFlavorArray = [...new Set(flavorArray)];
 console.log(uniqFlavorArray);
 
-// Create a froyo flavors object
+const froyoFlavors = {};
 
+for (const key of uniqFlavorArray) {
+  froyoFlavors[key] = 0;
+}
+
+console.log(froyoFlavors);
+
+// Create a froyo flavors object
 /**
  *
- * @param {string[*]} flavors an array of strings
- * @returns {object} the unique flavors in an object
+ * @param {string[]} flavors an array of strings
+ * @returns {object} the flavors in an object
  */
 function createFroyoFlavorsObj(flavors) {
   const froyoFlavors = {};
-  for (i = 0; i < flavors.length; i++) {
-    const flavor = flavors[i];
-    if (flavor === flavors[i]) {
-    }
+
+  for (const key of flavors) {
+    froyoFlavors[key] = 0;
   }
+  return froyoFlavors;
 }
+console.log(createFroyoFlavorsObj(flavorArray));
+
 // Loop through the froyo flavors in the object and count each flavor
