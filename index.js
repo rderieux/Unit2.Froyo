@@ -46,3 +46,24 @@ flavorArray.forEach((value) => {
 });
 
 console.log(froyoFlavors);
+
+/**
+ *
+ * @param {string[]} flavors an array of strings
+ * @returns {} an object of flavors as keys, and count of flavors as values
+ */
+function sumEachFlavor(flavors) {
+  let froyoFlavors = {};
+  let i = 0;
+  while (i < flavors.length) {
+    const flavor = flavors[i];
+    if (froyoFlavors[flavor] === undefined) {
+      froyoFlavors[flavor] = 1;
+    } else {
+      froyoFlavors[flavor]++;
+    }
+    i += 1;
+  }
+  return froyoFlavors;
+}
+console.log(sumEachFlavor(flavorArray));
