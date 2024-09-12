@@ -8,17 +8,11 @@ const userInputFlavorsString = prompt(
 const flavorArray = userInputFlavorsString.split(",");
 console.log(flavorArray);
 
+/*
 // Remove duplicates into a new array
 const uniqFlavorArray = [...new Set(flavorArray)];
 console.log(uniqFlavorArray);
-
-const froyoFlavors = {};
-
-for (const key of uniqFlavorArray) {
-  froyoFlavors[key] = 0;
-}
-
-console.log(froyoFlavors);
+*/
 
 // Create a froyo flavors object
 /**
@@ -32,8 +26,23 @@ function createFroyoFlavorsObj(flavors) {
   for (const key of flavors) {
     froyoFlavors[key] = 0;
   }
+
   return froyoFlavors;
 }
 console.log(createFroyoFlavorsObj(flavorArray));
 
-// Loop through the froyo flavors in the object and count each flavor
+// Loop through the froyo flavors in the array
+// If the array value equals a key, add one to that keys value
+const froyoFlavors = {};
+
+for (const key of flavorArray) {
+  froyoFlavors[key] = 0;
+}
+
+flavorArray.forEach((value) => {
+  if (froyoFlavors.hasOwnProperty(value)) {
+    froyoFlavors[value] += 1;
+  }
+});
+
+console.log(froyoFlavors);
